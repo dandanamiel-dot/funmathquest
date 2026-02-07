@@ -3,6 +3,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var scoreStore: ScoreStore
     @EnvironmentObject private var languageStore: LanguageStore
+    @EnvironmentObject private var challengeStore: DailyChallengeStore
 
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
 
@@ -13,6 +14,17 @@ struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     header
+                    
+                    // Mascot greeting
+                    HStack {
+                        Spacer()
+                        MascotView(mood: .waving, message: greetingMessage, size: 100)
+                        Spacer()
+                    }
+                    .padding(.vertical, 8)
+                    
+                    // Daily Challenge Card
+                    DailyChallengeCardView()
 
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(GameMode.allCases) { mode in
@@ -45,6 +57,27 @@ struct HomeView: View {
                     resultsCard
                 }
                 .padding(20)
+            }
+        }
+    }
+    
+    private var greetingMessage: String {
+        let hour = Calendar.current.component(.hour, from: Date())
+        if languageStore.isHebrew {
+            if hour < 12 {
+                return "בוקר טוב! 🌞"
+            } else if hour < 18 {
+                return "צהריים טובים! ☀️"
+            } else {
+                return "ערב טוב! 🌙"
+            }
+        } else {
+            if hour < 12 {
+                return "Good morning! 🌞"
+            } else if hour < 18 {
+                return "Good afternoon! ☀️"
+            } else {
+                return "Good evening! 🌙"
             }
         }
     }
@@ -173,13 +206,20 @@ private struct ModeCard: View {
     let title: String
     let subtitle: String
     let startLabel: String
+    
+    @State private var isPressed = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Image(systemName: mode.iconName)
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(mode.tint)
+                ZStack {
+                    Circle()
+                        .fill(mode.tint.opacity(0.2))
+                        .frame(width: 36, height: 36)
+                    Image(systemName: mode.iconName)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundStyle(mode.tint)
+                }
                 Spacer()
                 Text(startLabel)
                     .font(Theme.bodyFont(13))
@@ -197,20 +237,30 @@ private struct ModeCard: View {
             Text(subtitle)
                 .font(Theme.bodyFont(13))
                 .foregroundStyle(.secondary)
+                .lineLimit(2)
 
             Spacer()
         }
         .padding(16)
-        .frame(height: 140)
+        .frame(height: 150)
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .fill(Theme.card)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(mode.tint.opacity(0.25), lineWidth: 2)
+                        .stroke(
+                            LinearGradient(
+                                colors: [mode.tint.opacity(0.4), mode.tint.opacity(0.15)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 2
+                        )
                 )
         )
-        .shadow(color: mode.tint.opacity(0.18), radius: 12, x: 0, y: 6)
+        .shadow(color: mode.tint.opacity(0.2), radius: 12, x: 0, y: 6)
+        .scaleEffect(isPressed ? 0.98 : 1)
+        .animation(.spring(response: 0.3), value: isPressed)
     }
 }
 
@@ -219,5 +269,7 @@ private struct ModeCard: View {
         HomeView()
             .environmentObject(ScoreStore.mock)
             .environmentObject(LanguageStore())
+            .environmentObject(DailyChallengeStore.mock)
     }
 }
+

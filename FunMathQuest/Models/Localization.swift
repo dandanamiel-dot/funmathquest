@@ -61,6 +61,27 @@ enum LocalizedKey {
     case hebrew
     case dashboard
     case openDashboard
+    
+    // Daily Challenge
+    case dailyChallenge
+    case complete100Drills
+    case todaysProgress
+    case earn5StarsEvery10
+    case challengeComplete
+    case dailyChallengeComplete
+    case starsEarned
+    case shareAchievement
+    case youAreMathChampion
+    case `continue`
+    
+    // Mascot Encouragements
+    case greatJob
+    case keepGoing
+    case youCanDoIt
+    case tryAgain
+    case almostThere
+    case amazing
+    case oopsAnswer
 }
 
 extension LocalizedKey {
@@ -97,6 +118,27 @@ extension LocalizedKey {
         case .hebrew: return "Hebrew"
         case .dashboard: return "Score Dashboard"
         case .openDashboard: return "Open Dashboard"
+        
+        // Daily Challenge
+        case .dailyChallenge: return "Daily Challenge"
+        case .complete100Drills: return "Complete 100 drills today!"
+        case .todaysProgress: return "Today's Progress"
+        case .earn5StarsEvery10: return "Earn %d stars every %d drills"
+        case .challengeComplete: return "Challenge Complete! 🏆"
+        case .dailyChallengeComplete: return "Daily Challenge\nComplete! 🎉"
+        case .starsEarned: return "Stars Earned!"
+        case .shareAchievement: return "Share Achievement"
+        case .youAreMathChampion: return "You're a Math Champion! 🌟"
+        case .continue: return "Continue"
+        
+        // Mascot Encouragements
+        case .greatJob: return "Great job! 🎉"
+        case .keepGoing: return "Keep going! 💪"
+        case .youCanDoIt: return "You can do it! ✨"
+        case .tryAgain: return "Try again! 💫"
+        case .almostThere: return "Almost there! 🚀"
+        case .amazing: return "Amazing! 🌟"
+        case .oopsAnswer: return "Oops! The answer is"
         }
     }
 
@@ -133,6 +175,27 @@ extension LocalizedKey {
         case .hebrew: return "עברית"
         case .dashboard: return "לוח תוצאות"
         case .openDashboard: return "פתח לוח"
+        
+        // Daily Challenge
+        case .dailyChallenge: return "אתגר יומי"
+        case .complete100Drills: return "השלימו 100 תרגילים היום!"
+        case .todaysProgress: return "ההתקדמות היום"
+        case .earn5StarsEvery10: return "הרוויחו %d כוכבים על כל %d תרגילים"
+        case .challengeComplete: return "האתגר הושלם! 🏆"
+        case .dailyChallengeComplete: return "האתגר היומי\nהושלם! 🎉"
+        case .starsEarned: return "כוכבים שנצברו!"
+        case .shareAchievement: return "שתפו את ההישג"
+        case .youAreMathChampion: return "אתם אלופי מתמטיקה! 🌟"
+        case .continue: return "המשך"
+        
+        // Mascot Encouragements
+        case .greatJob: return "כל הכבוד! 🎉"
+        case .keepGoing: return "המשיכו! 💪"
+        case .youCanDoIt: return "אתם יכולים! ✨"
+        case .tryAgain: return "נסו שוב! 💫"
+        case .almostThere: return "כמעט שם! 🚀"
+        case .amazing: return "מדהים! 🌟"
+        case .oopsAnswer: return "אופס! התשובה היא"
         }
     }
 }

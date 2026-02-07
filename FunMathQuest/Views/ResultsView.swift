@@ -137,23 +137,23 @@ private struct SessionRow: View {
     }
 }
 
+/// Share card - standalone view for snapshot (no environment objects)
 private struct ShareCard: View {
     let session: SessionResult
-    @EnvironmentObject private var languageStore: LanguageStore
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(languageStore.t(.appTitle))
+            Text("🎮 Fun Math Quest")
                 .font(Theme.titleFont(20))
                 .foregroundStyle(Theme.ink)
 
-            Text(modeTitle(session.mode, isHebrew: languageStore.isHebrew))
+            Text(session.mode.rawValue)
                 .font(Theme.bodyFont(16))
 
             HStack {
-                StatBubble(label: languageStore.t(.accuracy), value: session.accuracyText)
-                StatBubble(label: languageStore.t(.bestStreak), value: "\(session.bestStreak)")
-                StatBubble(label: languageStore.t(.time), value: session.durationText)
+                StatBubble(label: "Accuracy", value: session.accuracyText)
+                StatBubble(label: "Best Streak", value: "\(session.bestStreak)")
+                StatBubble(label: "Time", value: session.durationText)
             }
 
             Text(session.date.formatted(date: .abbreviated, time: .shortened))
@@ -161,13 +161,13 @@ private struct ShareCard: View {
                 .foregroundStyle(.secondary)
         }
         .padding(16)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(width: 320, alignment: .leading)
         .background(Theme.card, in: RoundedRectangle(cornerRadius: 20))
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Theme.highlight, lineWidth: 2)
         )
-        .background(Color.clear)
+        .background(Color.white)
     }
 }
 
