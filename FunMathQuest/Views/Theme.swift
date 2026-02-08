@@ -62,6 +62,10 @@ enum Theme {
     
     static let correct = Color(red: 0.2, green: 0.78, blue: 0.35)
     static let incorrect = Color(red: 0.95, green: 0.4, blue: 0.4)
+    
+    // MARK: - Text Colors
+    
+    static let textSecondary = Color(red: 0.4, green: 0.4, blue: 0.45)  // Darker gray for visibility
 
     // MARK: - Typography
     

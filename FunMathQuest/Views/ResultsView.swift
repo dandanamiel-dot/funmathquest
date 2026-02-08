@@ -55,7 +55,7 @@ struct ResultsView: View {
                 .foregroundStyle(Theme.ink)
             Text(languageStore.t(.playRound))
                 .font(Theme.bodyFont(16))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.textSecondary)
         }
     }
 
@@ -119,12 +119,12 @@ private struct SessionRow: View {
 
             Text("\(languageStore.t(.accuracy)): \(session.accuracyText) • \(languageStore.t(.bestStreak)): \(session.bestStreak) • \(languageStore.t(.time)): \(session.durationText)")
                 .font(Theme.bodyFont(14))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.textSecondary)
 
             HStack {
                 Text(session.date.formatted(date: .abbreviated, time: .shortened))
                     .font(Theme.bodyFont(12))
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.textSecondary)
 
                 Spacer()
 
@@ -149,6 +149,7 @@ private struct ShareCard: View {
 
             Text(session.mode.rawValue)
                 .font(Theme.bodyFont(16))
+                .foregroundStyle(Theme.ink)
 
             HStack {
                 StatBubble(label: "Accuracy", value: session.accuracyText)
@@ -158,7 +159,7 @@ private struct ShareCard: View {
 
             Text(session.date.formatted(date: .abbreviated, time: .shortened))
                 .font(Theme.bodyFont(12))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Color.gray)
         }
         .padding(16)
         .frame(width: 320, alignment: .leading)
@@ -180,7 +181,7 @@ private struct SummaryCard: View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
                 .font(Theme.bodyFont(12))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.textSecondary)
             Text(value)
                 .font(Theme.titleFont(18))
                 .foregroundStyle(Theme.ink)
@@ -203,9 +204,10 @@ private struct StatBubble: View {
         VStack(spacing: 4) {
             Text(label)
                 .font(Theme.bodyFont(10))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Color.gray)
             Text(value)
                 .font(Theme.titleFont(14))
+                .foregroundStyle(Theme.ink)
         }
         .padding(8)
         .background(Theme.highlight.opacity(0.4), in: RoundedRectangle(cornerRadius: 12))

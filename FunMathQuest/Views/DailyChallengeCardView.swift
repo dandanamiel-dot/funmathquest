@@ -17,7 +17,7 @@ struct DailyChallengeCardView: View {
                         .foregroundStyle(Theme.ink)
                     Text(languageStore.t(.complete100Drills))
                         .font(Theme.bodyFont(12))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.textSecondary)
                 }
                 
                 Spacer()
@@ -39,7 +39,7 @@ struct DailyChallengeCardView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(languageStore.t(.todaysProgress))
                         .font(Theme.bodyFont(14))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.textSecondary)
                     
                     MilestoneBar(
                         current: challengeStore.drillsCompletedToday,
@@ -49,7 +49,7 @@ struct DailyChallengeCardView: View {
                     
                     Text(String(format: languageStore.t(.earn5StarsEvery10), challengeStore.starsPerMilestone, challengeStore.drillsPerMilestone))
                         .font(Theme.bodyFont(11))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Theme.textSecondary)
                 }
             }
             
@@ -138,7 +138,7 @@ struct ProgressRing: View {
                     .foregroundStyle(Theme.ink)
                 Text("/\(goal)")
                     .font(Theme.bodyFont(11))
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.textSecondary)
             }
         }
     }

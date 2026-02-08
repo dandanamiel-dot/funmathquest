@@ -267,6 +267,7 @@ private struct AchievementShareCard: View {
             
             Text("Daily Challenge Complete!")
                 .font(Theme.bodyFont(16))
+                .foregroundStyle(Theme.ink)
             
             HStack {
                 ForEach(0..<5, id: \.self) { _ in
@@ -282,7 +283,7 @@ private struct AchievementShareCard: View {
             
             Text(Date().formatted(date: .abbreviated, time: .omitted))
                 .font(Theme.bodyFont(12))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Color.gray)
         }
         .padding(24)
         .frame(width: 320)

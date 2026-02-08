@@ -104,7 +104,7 @@ struct DrillView: View {
             
             Text(String(format: languageStore.t(.questionOf), questionIndex, totalQuestions))
                 .font(Theme.bodyFont(16))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.textSecondary)
 
             ProgressView(value: Double(questionIndex), total: Double(totalQuestions))
                 .tint(mode.tint)
@@ -129,7 +129,7 @@ struct DrillView: View {
             } else {
                 Text(languageStore.t(.whatIsAnswer))
                     .font(Theme.bodyFont(16))
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.textSecondary)
             }
         }
         .frame(maxWidth: .infinity)
@@ -182,7 +182,7 @@ struct DrillView: View {
                     Text("\(languageStore.t(.best)): \(bestStreak)")
                 }
                 .font(Theme.bodyFont(14))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.textSecondary)
 
                 Spacer()
 

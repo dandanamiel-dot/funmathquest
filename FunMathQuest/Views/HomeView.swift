@@ -110,7 +110,7 @@ struct HomeView: View {
             }
             Text(languageStore.t(.tagline))
                 .font(Theme.bodyFont(18))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.textSecondary)
         }
     }
 
@@ -127,14 +127,14 @@ struct HomeView: View {
                             .font(Theme.bodyFont(16))
                         Text("\(languageStore.t(.accuracy)): \(latest.accuracyText) • \(languageStore.t(.bestStreak)): \(latest.bestStreak)")
                             .font(Theme.bodyFont(14))
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Theme.textSecondary)
                     }
                     Spacer()
                 }
             } else {
                 Text(languageStore.t(.playRound))
                     .font(Theme.bodyFont(15))
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.textSecondary)
             }
 
             NavigationLink {
@@ -236,7 +236,7 @@ private struct ModeCard: View {
 
             Text(subtitle)
                 .font(Theme.bodyFont(13))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.textSecondary)
                 .lineLimit(2)
 
             Spacer()

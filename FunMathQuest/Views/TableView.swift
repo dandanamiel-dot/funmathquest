@@ -35,7 +35,7 @@ struct TableView: View {
                 .foregroundStyle(Theme.ink)
             Text(languageStore.t(.tapRowColumn))
                 .font(Theme.bodyFont(16))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Theme.textSecondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
